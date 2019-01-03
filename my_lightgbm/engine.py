@@ -498,4 +498,4 @@ def cv(params, train_set, num_boost_round=100,
             for k in results:
                 results[k] = results[k][:cvfolds.best_iteration]
             break
-    return dict(results)
+    return dict(results), cvfolds
