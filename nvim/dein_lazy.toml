@@ -1,0 +1,40 @@
+# for markdown 
+[[plugins]]
+on_ft = ['markdown']
+repo = 'plasticboy/vim-markdown'
+hook_add = 'let g:vim_markdown_folding_disabled = 1'
+hook_add = 'au BufRead,BufNewFile *.md set filetype=markdown' 
+
+
+# linter
+[[plugins]]
+repo = 'w0rp/ale'
+on_ft = ['python']
+hook_add = '''
+" save 時のみに発動
+let g:ale_lint_on_text_changed = "normal"
+let g:ale_lint_on_enter = 0
+
+" エラーを別ウィンドウで表示
+" let g:ale_open_list = 1
+
+" ステータスバーを常に表示
+" let g:ale_sign_column_always = 1
+
+" C-j, C-k でエラー移動
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+" linter 設定
+let g:ale_linters = {'python': ['flake8']}
+
+" fixer 設定
+let g:ale_fixers = {
+      \ 'python': ['autopep8', 'isort'],
+      \ 'markdown': [
+      \   {buffer, lines -> {'command': 'textlint -c ~/.config/textlintrc -o /dev/null --fix --no-color --quiet %t', 'read_temporary_file': 1}}
+      \   ],
+      \ }
+let g:ale_python_autopep8_options = '--aggressive'
+let g:ale_fix_on_save = 0
+'''
