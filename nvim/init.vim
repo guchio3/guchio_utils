@@ -40,7 +40,6 @@ if dein#load_state('~/.config/nvim')
   " TOML を読み込み、キャッシュしておく
   call dein#load_toml('~/.config/nvim/dein.toml',     {'lazy' : 0})
   call dein#load_toml('~/.config/nvim/dein_lazy.toml', {'lazy' : 1})
-  call dein#load_toml('~/.config/nvim/dein_neo.toml',      {'lazy': 1})
   call dein#load_toml('~/.config/nvim/dein_python.toml',   {'lazy': 1})
 
   " Let dein manage dein
@@ -53,6 +52,9 @@ if dein#load_state('~/.config/nvim')
 
   " You can specify revision/branch/tag.
   call dein#add('Shougo/deol.nvim', { 'rev': 'a1b5108fd' })
+
+  " Add based on https://github.com/Shougo/dein.vim/issues/11
+  call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 
   " Required:
   call dein#end()

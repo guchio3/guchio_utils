@@ -20,5 +20,32 @@ hook_add = '''
   autocmd FileType python setlocal completeopt-=preview
 '''
 
+
 [[plugins]]
 repo = 'Vimjas/vim-python-pep8-indent'
+
+
+# linter
+[[plugins]]
+repo = 'w0rp/ale'
+on_ft = ['python']
+hook_add = '''
+" save $B;~$N$_$KH/F0(B
+let g:ale_lint_on_text_changed = "normal"
+let g:ale_lint_on_enter = 0
+" $B%(%i!<$rJL%&%#%s%I%&$GI=<((B
+" let g:ale_open_list = 1
+" $B%9%F!<%?%9%P!<$r>o$KI=<((B
+" let g:ale_sign_column_always = 1
+" C-j, C-k $B$G%(%i!<0\F0(B
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+" linter $B@_Dj(B
+let g:ale_linters = {'python': ['flake8']}
+" fixer $B@_Dj(B
+let g:ale_fixers = {
+      \ 'python': ['autopep8', 'isort'],
+      \ }
+let g:ale_python_autopep8_options = '--aggressive'
+let g:ale_fix_on_save = 0
+'''
