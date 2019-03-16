@@ -18,8 +18,10 @@ set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim
 
 
 " neovim 用 python 環境指定
-let g:python_host_prog=$PYENV_ROOT.'/versions/neovim-2/bin/python'
-let g:python3_host_prog=$PYENV_ROOT.'/versions/neovim-3/bin/python'
+" let g:python_host_prog=$PYENV_ROOT.'/versions/neovim-2/bin/python'
+let g:python_host_prog=$CONDA_PREFIX_1.'/envs/neovim-2/bin/python'
+" let g:python3_host_prog=$PYENV_ROOT.'/versions/neovim-3/bin/python'
+let g:python3_host_prog=$CONDA_PREFIX_1.'/envs/neovim-3/bin/python'
 
 " leader 変更 (default は \)
 let mapleader = ","
