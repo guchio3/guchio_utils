@@ -11,14 +11,17 @@ RUN add-apt-repository ppa:neovim-ppa/unstable
 RUN apt-get update && apt-get install -y --no-install-recommends \
          build-essential \
          cmake \
+         sudo \
          automake \
          wget \
+         less \
          gcc \
          g++ \
          git \
          curl \
          neovim \
          ncurses-term \
+         exuberant-ctags \
          ca-certificates \
          libjpeg-dev \
          libevent-dev \
@@ -59,8 +62,8 @@ RUN git clone https://github.com/guchio3/guchio_utils.git
 WORKDIR /root
 RUN rm .bashrc && ln -s /workspace/guchio_utils/.bashrc .bashrc
 RUN ln -s /workspace/guchio_utils/.tmux.conf .tmux.conf
-RUN mkdir -p .configs/nvim/
-RUN ln -s /workspace/guchio_utils/nvim/* .configs/nvim/
+RUN mkdir -p .config/nvim/
+RUN ln -s /workspace/guchio_utils/nvim/* .config/nvim/
 # install git-completion.bash and git-prompt.sh
 RUN wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O ~/.git-completion.bash \
         && chmod a+x ~/.git-completion.bash
@@ -75,4 +78,10 @@ RUN mkdir -p ~/.cache/dein
 WORKDIR /root/.cache/dein
 RUN curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
 RUN sh ./installer.sh ~/.config/nvim
+# set locale
+RUN apt-get install -y language-pack-en
+RUN locale-gen en_US.UTF-8  
+ENV LANG en_US.UTF-8  
+ENV LANGUAGE en_US:en  
+ENV LC_ALL en_US.UTF-8
 WORKDIR /workspace
