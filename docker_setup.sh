@@ -32,7 +32,7 @@ sudo add-apt-repository \
 sudo apt update
 
 # Docker CEのインストールを行います。
-sudo apt-get install docker-ce
+sudo apt-get install -y docker-ce
 
 # add me to the user group
 sudo gpasswd -a $(whoami) docker
