@@ -55,7 +55,7 @@ COPY . .
 WORKDIR /workspace
 RUN chmod -R a+w /workspace
 RUN git clone https://github.com/guchio3/guchio_utils.git
-WORKDIR $HOME
+WORKDIR /root
 RUN ln -s /workspace/guchio_utils/.bashrc .bashrc
 RUN ln -s /workspace/guchio_utils/.tmux.conf .tmux.conf
 RUN mkdir .docker
