@@ -18,6 +18,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
          git \
          curl \
          neovim \
+         ncurses-term \
          ca-certificates \
          libjpeg-dev \
          libevent-dev \
@@ -56,22 +57,22 @@ WORKDIR /workspace
 RUN chmod -R a+w /workspace
 RUN git clone https://github.com/guchio3/guchio_utils.git
 WORKDIR /root
-RUN ln -s /workspace/guchio_utils/.bashrc .bashrc
+RUN rm .bashrc && ln -s /workspace/guchio_utils/.bashrc .bashrc
 RUN ln -s /workspace/guchio_utils/.tmux.conf .tmux.conf
-RUN mkdir .docker
-RUN ln -s /workspace/guchio_utils/.docker/* ./
 RUN mkdir -p .configs/nvim/
 RUN ln -s /workspace/guchio_utils/nvim/* .configs/nvim/
-WORKDIR /workspace
 # install git-completion.bash and git-prompt.sh
 RUN wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O ~/.git-completion.bash \
-        chmod a+x ~/.git-completion.bash
+        && chmod a+x ~/.git-completion.bash
 RUN wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O ~/.git-prompt.sh \
-        chmod a+x ~/.git-prompt.sh
+        && chmod a+x ~/.git-prompt.sh
 # create envs for neovim
 RUN conda create -n neovim-3 python=3.7
-RUN conda activate neovim-3 \ 
-        pip install neovim
+RUN /opt/conda/envs/neovim-3/bin/pip install neovim
 RUN conda create -n neovim-2 python=2.7
-RUN conda activate neovim-2 \ 
-        pip install neovim
+RUN /opt/conda/envs/neovim-2/bin/pip install neovim
+RUN mkdir -p ~/.cache/dein
+WORKDIR /root/.cache/dein
+RUN curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+RUN sh ./installer.sh ~/.config/nvim
+WORKDIR /workspace

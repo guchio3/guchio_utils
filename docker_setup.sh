@@ -1,4 +1,6 @@
 # install docker and the related utils
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
+
 # check the number of args
 if [ $# -ne 1 ]; then
     echo "invalid # of args"
@@ -59,3 +61,8 @@ if [ $1 = gpu ]; then
 elif [ $1 = cpu ]; then
     echo "finished! successfully installed docker for CPU!"
 fi
+
+
+# ---- setting docker ----
+mkdir ~/.docker
+cd ~/ && ln -s $SCRIPT_DIR/.docker/config.json ./.docker/config.json
