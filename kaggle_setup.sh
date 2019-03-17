@@ -7,11 +7,11 @@ fi
 if [ $1 = gpu ]; then
     sh gpu_setup.sh
     sh docker_setup.sh gpu
+    docker build -t kaggle_$1 -f kaggle_Dockerfile . --build-arg BASE_IMG="nvidia/cuda:10.1-cudnn7-devel-ubuntu16.04"
 elif [ $1 = cpu ]; then
     sh docker_setup.sh cpu
+    docker build -t kaggle_$1 -f kaggle_Dockerfile . --build-arg BASE_IMG="ubuntu"
 else
     echo "invalid argment, $1"
     exit 1
 fi
-
-docker build -t kaggle_$1 -f kaggle_$1_dockerfile .
