@@ -141,6 +141,7 @@ unset __conda_setup
 
 # set timezone for tmux
 export TZ=Asia/Tokyo
+export TERM=xterm-256color
 
 # setting of git-flow-completion
 # source /usr/local/bin/git-flow-completion.bash
