@@ -30,13 +30,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # install miniconda
 RUN curl -o ~/miniconda.sh -O  https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh  && \
      chmod +x ~/miniconda.sh && \
-     ~/miniconda.sh -b -p /opt/conda && \
+     ~/miniconda.sh -b -p ~/anaconda3 && \
      rm ~/miniconda.sh && \
-     /opt/conda/bin/conda install -y python=$PYTHON_VERSION numpy pyyaml scipy ipython mkl mkl-include cython typing && \
-     /opt/conda/bin/conda install -y -c pytorch magma-cuda100 && \
-     /opt/conda/bin/conda install -y -c conda-forge tmux lightgbm catboost xgboost && \
-     /opt/conda/bin/conda clean -ya
-ENV PATH /opt/conda/bin:$PATH
+     $HOME/anaconda3/bin/conda install -y python=$PYTHON_VERSION numpy pyyaml scipy ipython mkl mkl-include cython typing && \
+     $HOME/anaconda3/bin/conda install -y -c pytorch magma-cuda100 && \
+     $HOME/anaconda3/bin/conda install -y -c conda-forge tmux lightgbm catboost xgboost && \
+     $HOME/anaconda3/bin/conda clean -ya
+ENV PATH $HOME/anaconda3/bin:$PATH
 RUN pip install ninja kaggle
 # This must be done before pip so that requirements.txt is available
 WORKDIR /opt/pytorch
@@ -68,9 +68,9 @@ RUN wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git
         && chmod a+x ~/.git-prompt.sh
 # create envs for neovim
 RUN conda create -n neovim-3 python=3.7
-RUN /opt/conda/envs/neovim-3/bin/pip install neovim
+RUN $HOME/anaconda3/envs/neovim-3/bin/pip install neovim
 RUN conda create -n neovim-2 python=2.7
-RUN /opt/conda/envs/neovim-2/bin/pip install neovim
+RUN $HOME/anaconda3/envs/neovim-2/bin/pip install neovim
 RUN mkdir -p ~/.cache/dein
 WORKDIR /root/.cache/dein
 RUN curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
