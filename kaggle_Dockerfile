@@ -5,6 +5,7 @@ ARG PYTHON_VERSION=3.7
 
 
 # install general requirements
+RUN add-apt-repository ppa:neovim-ppa/unstable
 RUN apt-get update && apt-get install -y --no-install-recommends \
          build-essential \
          cmake \
@@ -14,6 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
          g++ \
          git \
          curl \
+         neovim \
          ca-certificates \
          libjpeg-dev \
          software-properties-common \
@@ -30,7 +32,7 @@ RUN curl -o ~/miniconda.sh -O  https://repo.continuum.io/miniconda/Miniconda3-la
      rm ~/miniconda.sh && \
      /opt/conda/bin/conda install -y python=$PYTHON_VERSION numpy pyyaml scipy ipython mkl mkl-include cython typing && \
      /opt/conda/bin/conda install -y -c pytorch magma-cuda100 && \
-     /opt/conda/bin/conda install -y -c conda-forge neovim tmux lightgbm catboost xgboost && \
+     /opt/conda/bin/conda install -y -c conda-forge tmux lightgbm catboost xgboost && \
      /opt/conda/bin/conda clean -ya
 ENV PATH /opt/conda/bin:$PATH
 RUN pip install ninja kaggle
@@ -47,5 +49,28 @@ COPY . .
 # 
 # RUN git clone https://github.com/pytorch/vision.git && cd vision && pip install -v .
 
+
+# setup envs
 WORKDIR /workspace
 RUN chmod -R a+w /workspace
+RUN git clone git@github.com:guchio3/guchio_utils.git
+WORKDIR $HOME
+RUN ln -s /workspace/guchio_utils/.bashrc .bashrc
+RUN ln -s /workspace/guchio_utils/.tmux.conf .tmux.conf
+RUN mkdir .docker
+RUN ln -s /workspace/guchio_utils/.docker/* ./
+RUN mkdir -p .configs/nvim/
+RUN ln -s /workspace/guchio_utils/nvim/* .configs/nvim/
+WORKDIR /workspace
+# install git-completion.bash and git-prompt.sh
+RUN wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O ~/.git-completion.bash \
+        chmod a+x ~/.git-completion.bash
+RUN wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O ~/.git-prompt.sh \
+        chmod a+x ~/.git-prompt.sh
+# create envs for neovim
+RUN conda create -n neovim-3 python=3.7
+RUN conda activate neovim-3 \ 
+        pip install neovim
+RUN conda create -n neovim-2 python=2.7
+RUN conda activate neovim-2 \ 
+        pip install neovim
