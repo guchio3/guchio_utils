@@ -5,6 +5,8 @@ ARG PYTHON_VERSION=3.7
 
 
 # install general requirements
+RUN apt-get update
+RUN apt-get install -y --no-install-recommends software-properties-common 
 RUN add-apt-repository ppa:neovim-ppa/unstable
 RUN apt-get update && apt-get install -y --no-install-recommends \
          build-essential \
@@ -18,7 +20,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
          neovim \
          ca-certificates \
          libjpeg-dev \
-         software-properties-common \
          libevent-dev \
          ncurses-dev \
          libpng-dev &&\
@@ -53,7 +54,7 @@ COPY . .
 # setup envs
 WORKDIR /workspace
 RUN chmod -R a+w /workspace
-RUN git clone git@github.com:guchio3/guchio_utils.git
+RUN git clone https://github.com/guchio3/guchio_utils.git
 WORKDIR $HOME
 RUN ln -s /workspace/guchio_utils/.bashrc .bashrc
 RUN ln -s /workspace/guchio_utils/.tmux.conf .tmux.conf
