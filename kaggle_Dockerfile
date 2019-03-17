@@ -37,7 +37,7 @@ RUN curl -o ~/miniconda.sh -O  https://repo.continuum.io/miniconda/Miniconda3-la
      $HOME/anaconda3/bin/conda install -y -c conda-forge tmux lightgbm catboost xgboost && \
      $HOME/anaconda3/bin/conda clean -ya
 ENV PATH $HOME/anaconda3/bin:$PATH
-RUN pip install ninja kaggle
+RUN $HOME/anaconda3/bin/pip install ninja kaggle
 # This must be done before pip so that requirements.txt is available
 WORKDIR /opt/pytorch
 COPY . .
