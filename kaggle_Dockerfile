@@ -67,9 +67,9 @@ RUN wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git
 RUN wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O ~/.git-prompt.sh \
         && chmod a+x ~/.git-prompt.sh
 # create envs for neovim
-RUN conda create -n neovim-3 python=3.7
+RUN $HOME/anaconda3/bin/conda create -n neovim-3 python=3.7
 RUN $HOME/anaconda3/envs/neovim-3/bin/pip install neovim
-RUN conda create -n neovim-2 python=2.7
+RUN $HOME/anaconda3/bin/conda create -n neovim-2 python=2.7
 RUN $HOME/anaconda3/envs/neovim-2/bin/pip install neovim
 RUN mkdir -p ~/.cache/dein
 WORKDIR /root/.cache/dein
