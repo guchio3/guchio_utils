@@ -14,4 +14,4 @@ else
     exit 1
 fi
 
-docker build -t kaggle_$1 -f kaggle_$1_dockerfile
+docker build -t kaggle_$1 -f kaggle_$1_dockerfile .
