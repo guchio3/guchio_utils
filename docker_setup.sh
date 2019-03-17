@@ -1,8 +1,8 @@
 # install docker and the related utils
 # check the number of args
 if [ $# -ne 1 ]; then
-	echo "invalid # of args"
-	echo "your's is $#, but only 1 (cpu or gpu) is needed."
+    echo "invalid # of args"
+    echo "your's is $#, but only 1 (cpu or gpu) is needed."
 fi
 
 # update apt
@@ -47,15 +47,15 @@ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 #  ---- install nvidia-docker2 ----
 # it is install only if the arg1 is "gpu"
 if [ $1 = gpu ]; then
-	# aptリポジトリに必要なパッケージリポジトリパスを追加します
-	curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
-	curl -s -L https://nvidia.github.io/nvidia-docker/ubuntu16.04/amd64/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
-	sudo apt-get update
-	# nvidia-docker 2.0をインストールします。
-	sudo apt-get install -y nvidia-docker2
-	# dockerのデーモン設定をリロードします。
-	sudo pkill -SIGHUP dockerd
-	echo "finished! successfully installed docker for GPU!"
+    # aptリポジトリに必要なパッケージリポジトリパスを追加します
+    curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+    curl -s -L https://nvidia.github.io/nvidia-docker/ubuntu16.04/amd64/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+    sudo apt-get update
+    # nvidia-docker 2.0をインストールします。
+    sudo apt-get install -y nvidia-docker2
+    # dockerのデーモン設定をリロードします。
+    sudo pkill -SIGHUP dockerd
+    echo "finished! successfully installed docker for GPU!"
 elif [ $1 = cpu ]; then
-	echo "finished! successfully installed docker for CPU!"
+    echo "finished! successfully installed docker for CPU!"
 fi
