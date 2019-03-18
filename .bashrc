@@ -98,6 +98,10 @@ alias la='ls -A'
 alias l='ls -CF'
 alias gs='git status'
 alias gd='git diff'
+alias dp='docker ps -a'
+alias di='docker images'
+alias dr='docker run -it'
+alias ds='docker start'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
