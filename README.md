@@ -17,5 +17,5 @@ sh kaggle_setup.sh gpu (or cpu)
 
 ### use env
 ```
-nvidia-docker run -it --name kaggle_gpu kaggle_gpu bash
+nvidia-docker run -it --name kaggle_gpu -v $PWD:/workspace/kaggle-XXXX -w=/workspace/kaggle-XXXX -p 8888:8888 -e TZ=Asia/Tokyo kaggle_gpu bash
 ```
