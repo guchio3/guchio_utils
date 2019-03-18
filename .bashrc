@@ -100,6 +100,7 @@ alias gs='git status'
 alias gd='git diff'
 alias dp='docker ps -a'
 alias di='docker images'
+alias da='docker attach'
 alias dr='docker run -it'
 alias ds='docker start'
 
