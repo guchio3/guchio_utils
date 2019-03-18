@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
          build-essential \
          cmake \
          sudo \
+         ssh \
          automake \
          wget \
          less \
@@ -19,6 +20,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
          g++ \
          git \
          curl \
+         htop \
          neovim \
          ncurses-term \
          exuberant-ctags \
