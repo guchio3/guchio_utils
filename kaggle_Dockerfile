@@ -67,11 +67,13 @@ RUN rm .bashrc && ln -s /workspace/guchio_utils/.bashrc .bashrc
 RUN ln -s /workspace/guchio_utils/.tmux.conf .tmux.conf
 RUN mkdir -p .config/nvim/
 RUN ln -s /workspace/guchio_utils/nvim/* .config/nvim/
+
 # install git-completion.bash and git-prompt.sh
 RUN wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O ~/.git-completion.bash \
         && chmod a+x ~/.git-completion.bash
 RUN wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh -O ~/.git-prompt.sh \
         && chmod a+x ~/.git-prompt.sh
+
 # create envs for neovim
 RUN $HOME/anaconda3/bin/conda create -n neovim-3 python=3.7
 RUN $HOME/anaconda3/envs/neovim-3/bin/pip install neovim
@@ -81,10 +83,18 @@ RUN mkdir -p ~/.cache/dein
 WORKDIR /root/.cache/dein
 RUN curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
 RUN sh ./installer.sh ~/.config/nvim
+
 # set locale
 RUN apt-get update && apt-get install -y locales
 RUN locale-gen en_US.UTF-8  
 ENV LANG en_US.UTF-8  
 ENV LANGUAGE en_US:en  
 ENV LC_ALL en_US.UTF-8
+
+# set ctags
+RUN ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./pylibs.tags $(python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))")
+RUN mkdir ~/.config/nvim/tags/
+RUN mv pylibs.tabs ~/.config/nvim/tags/
+
+# mv dir
 WORKDIR /workspace
