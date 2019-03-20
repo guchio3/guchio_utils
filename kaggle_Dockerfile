@@ -104,7 +104,7 @@ RUN mkdir -p $(jupyter --data-dir)/nbextensions
 RUN git clone https://github.com/lambdalisue/jupyter-vim-binding $(jupyter --data-dir)/nbextensions/vim_binding
 RUN jupyter nbextension enable vim_binding/vim_binding
 ## edit vim_bindings setting as I can use C-c for exitting insert mode
-RUN sed -i "s/      'Ctrl-C': false,  \/\/ To enable clipboard copy/\/\/      'Ctrl-C': false,  \/\/ To enable clipboard copy/g" ~/.local/share/jupyter/nbextensions/vim_binding/vim_binding.js
+RUN sed -i "s/      'Ctrl-C': false,  \/\/ To enable clipboard copy/\/\/      'Ctrl-C': false,  \/\/ To enable clipboard copy/g" $(jupyter --data-dir)/nbextensions/vim_binding/vim_binding.js
 
 # mv dir
 WORKDIR /workspace
