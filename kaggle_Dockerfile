@@ -38,7 +38,7 @@ RUN curl -o ~/miniconda.sh -O  https://repo.continuum.io/miniconda/Miniconda3-la
      chmod +x ~/miniconda.sh && \
      ~/miniconda.sh -b -p ~/anaconda3 && \
      rm ~/miniconda.sh && \
-     $HOME/anaconda3/bin/conda install -y python=$PYTHON_VERSION numpy pyyaml scipy ipython mkl mkl-include cython typing jupyter && \
+     $HOME/anaconda3/bin/conda install -y python=$PYTHON_VERSION numpy pyyaml scipy ipython mkl mkl-include cython typing jupyter flake8 && \
      $HOME/anaconda3/bin/conda install -y -c pytorch magma-cuda100 && \
      $HOME/anaconda3/bin/conda install -y -c conda-forge tmux lightgbm catboost xgboost && \
      $HOME/anaconda3/bin/conda clean -ya
