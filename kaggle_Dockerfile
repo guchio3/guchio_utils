@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
          cmake \
          sudo \
          ssh \
+         sshfs \
          automake \
          wget \
          less \
