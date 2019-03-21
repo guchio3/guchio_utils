@@ -61,14 +61,12 @@ COPY . .
 
 
 # setup envs
-WORKDIR /workspace
-RUN chmod -R a+w /workspace
-RUN git clone https://github.com/guchio3/guchio_utils.git
 WORKDIR /root
-RUN rm .bashrc && ln -s /workspace/guchio_utils/.bashrc .bashrc
-RUN ln -s /workspace/guchio_utils/.tmux.conf .tmux.conf
+RUN git clone https://github.com/guchio3/guchio_utils.git
+RUN rm .bashrc && ln -s /root/guchio_utils/.bashrc .bashrc
+RUN ln -s /root/guchio_utils/.tmux.conf .tmux.conf
 RUN mkdir -p .config/nvim/
-RUN ln -s /workspace/guchio_utils/nvim/* .config/nvim/
+RUN ln -s /root/guchio_utils/nvim/* .config/nvim/
 
 # install git-completion.bash and git-prompt.sh
 RUN wget https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -O ~/.git-completion.bash \
@@ -111,6 +109,3 @@ RUN sed -i "s/      'Ctrl-C': false,  \/\/ To enable clipboard copy/\/\/      'C
 # set git
 RUN git config --global user.email "astt.hwhw@gmail.com"
 RUN git config --global user.name "guchio3"
-
-## mv dir
-WORKDIR /workspace
