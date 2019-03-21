@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
          build-essential \
          cmake \
          sudo \
+         sed \
          ssh \
          sshfs \
          automake \
@@ -98,13 +99,17 @@ RUN mv pylibs.tags ~/.config/nvim/tags/
 
 # set jupyter notebook
 # jupyter vim key-bind settings
-RUN pip install jupyter_contrib_nbextensions
-RUN jupyter contrib nbextension install --user
+RUN $HOME/anaconda3/bin/pip install jupyter_contrib_nbextensions
+RUN $HOME/anaconda3/bin/jupyter contrib nbextension install --user
 RUN mkdir -p $(jupyter --data-dir)/nbextensions
 RUN git clone https://github.com/lambdalisue/jupyter-vim-binding $(jupyter --data-dir)/nbextensions/vim_binding
-RUN jupyter nbextension enable vim_binding/vim_binding
-## edit vim_bindings setting as I can use C-c for exitting insert mode
+RUN $HOME/anaconda3/bin/jupyter nbextension enable vim_binding/vim_binding
+# edit vim_bindings setting as I can use C-c for exitting insert mode
 RUN sed -i "s/      'Ctrl-C': false,  \/\/ To enable clipboard copy/\/\/      'Ctrl-C': false,  \/\/ To enable clipboard copy/g" $(jupyter --data-dir)/nbextensions/vim_binding/vim_binding.js
 
-# mv dir
+# set git
+git config --global user.email "astt.hwhw@gmail.com"
+git config --global user.name "naoya taguchi"
+
+## mv dir
 WORKDIR /workspace
