@@ -57,7 +57,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 # prompt
-if [ "test -f /.dockerenv" ]; then
+if [ -e "/.dockerenv" ]; then
         PS1='$(echo -e "\U1F433")\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[01;31m\]$(__git_ps1 " (%s)")\[\033[00m\] \[\033[00m\]\$ '
 else
     if [ "$color_prompt" = yes ]; then
@@ -162,3 +162,10 @@ export TERM=xterm-256color
 # setting of git prompt
 source ~/.git-prompt.sh
 export PATH=$HOME/bin:$PATH
+
+# pudate guchio_utils
+echo "====== UPDATE GUCHIO_UTILS ======"
+cd guchio_utils
+git pull
+cd $HOME
+echo "============== DONE ============="
