@@ -94,7 +94,7 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 # set ctags
-RUN ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./pylibs.tags $(python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))")
+RUN ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./pylibs.tags $($HOME/anaconda3/bin/python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))")
 RUN mkdir ~/.config/nvim/tags/
 RUN mv pylibs.tags ~/.config/nvim/tags/
 
@@ -102,11 +102,11 @@ RUN mv pylibs.tags ~/.config/nvim/tags/
 # jupyter vim key-bind settings
 RUN $HOME/anaconda3/bin/pip install jupyter_contrib_nbextensions
 RUN $HOME/anaconda3/bin/jupyter contrib nbextension install --user
-RUN mkdir -p $(jupyter --data-dir)/nbextensions
-RUN git clone https://github.com/lambdalisue/jupyter-vim-binding $(jupyter --data-dir)/nbextensions/vim_binding
+RUN mkdir -p $($HOME/anaconda3/bin/jupyter --data-dir)/nbextensions
+RUN git clone https://github.com/lambdalisue/jupyter-vim-binding $($HOME/anaconda3/bin/jupyter --data-dir)/nbextensions/vim_binding
 RUN $HOME/anaconda3/bin/jupyter nbextension enable vim_binding/vim_binding
 # edit vim_bindings setting as I can use C-c for exitting insert mode
-RUN sed -i "s/      'Ctrl-C': false,  \/\/ To enable clipboard copy/\/\/      'Ctrl-C': false,  \/\/ To enable clipboard copy/g" $(jupyter --data-dir)/nbextensions/vim_binding/vim_binding.js
+RUN sed -i "s/      'Ctrl-C': false,  \/\/ To enable clipboard copy/\/\/      'Ctrl-C': false,  \/\/ To enable clipboard copy/g" $($HOME/anaconda3/bin/jupyter --data-dir)/nbextensions/vim_binding/vim_binding.js
 
 # set git
 RUN git config --global user.email "astt.hwhw@gmail.com"
