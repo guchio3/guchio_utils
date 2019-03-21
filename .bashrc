@@ -105,8 +105,8 @@ alias da='docker attach'
 alias dac='docker attach kaggle_cpu'
 alias dag='docker attach kaggle_gpu'
 alias dr='docker run -it'
-alias drc='docker run -it --privileged --device /dev/fuse --name kaggle_cpu -v $HOME/.ssh:/root/.ssh -v $HOME/.kaggle:/root/.kaggle -p 8888:8888 -e TZ=Asia/Tokyo kaggle_cpu bash'
-alias drg='nvidia-docker run -it --privileged --device /dev/fuse --name kaggle_gpu -v $HOME/.ssh:/root/.ssh -v $HOME/.kaggle:/root/.kaggle -p 8888:8888 -e TZ=Asia/Tokyo kaggle_gpu bash'
+alias drc='docker run -it --privileged --device /dev/fuse --name kaggle_cpu -v $HOME/.ssh:/root/.ssh -v $HOME/.kaggle:/root/.kaggle -w /workspace -p 8888:8888 -e TZ=Asia/Tokyo kaggle_cpu bash'
+alias drg='nvidia-docker run -it --privileged --device /dev/fuse --name kaggle_gpu -v $HOME/.ssh:/root/.ssh -v $HOME/.kaggle:/root/.kaggle -w /workspace -p 8888:8888 -e TZ=Asia/Tokyo kaggle_gpu bash'
 alias ds='docker start'
 
 # Add an "alert" alias for long running commands.  Use like so:
