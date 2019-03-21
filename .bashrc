@@ -57,7 +57,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 # prompt
-if [ "test -f /.dockerenv" ]; then
+if [ -e "/.dockerenv" ]; then
         PS1='$(echo -e "\U1F433")\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[01;31m\]$(__git_ps1 " (%s)")\[\033[00m\] \[\033[00m\]\$ '
 else
     if [ "$color_prompt" = yes ]; then
