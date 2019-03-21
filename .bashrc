@@ -108,6 +108,8 @@ alias dr='docker run -it'
 alias drc='docker run -it --privileged --device /dev/fuse --name kaggle_cpu -v $HOME/.ssh:/root/.ssh -v $HOME/.kaggle:/root/.kaggle -w /workspace -p 8888:8888 -e TZ=Asia/Tokyo kaggle_cpu bash'
 alias drg='nvidia-docker run -it --privileged --device /dev/fuse --name kaggle_gpu -v $HOME/.ssh:/root/.ssh -v $HOME/.kaggle:/root/.kaggle -w /workspace -p 8888:8888 -e TZ=Asia/Tokyo kaggle_gpu bash'
 alias ds='docker start'
+alias dsc='docker start kaggle_cpu'
+alias dsg='docker start kaggle_gpu'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
