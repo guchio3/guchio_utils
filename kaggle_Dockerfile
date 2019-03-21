@@ -108,8 +108,8 @@ RUN $HOME/anaconda3/bin/jupyter nbextension enable vim_binding/vim_binding
 RUN sed -i "s/      'Ctrl-C': false,  \/\/ To enable clipboard copy/\/\/      'Ctrl-C': false,  \/\/ To enable clipboard copy/g" $(jupyter --data-dir)/nbextensions/vim_binding/vim_binding.js
 
 # set git
-git config --global user.email "astt.hwhw@gmail.com"
-git config --global user.name "naoya taguchi"
+RUN git config --global user.email "astt.hwhw@gmail.com"
+RUN git config --global user.name "guchio3"
 
 ## mv dir
 WORKDIR /workspace
