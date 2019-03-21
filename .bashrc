@@ -110,6 +110,7 @@ alias drg='nvidia-docker run -it --privileged --device /dev/fuse --name kaggle_g
 alias ds='docker start'
 alias dsc='docker start kaggle_cpu'
 alias dsg='docker start kaggle_gpu'
+alias jn='jupyter notebook --port 8888 --ip=0.0.0.0'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
