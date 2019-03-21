@@ -164,8 +164,8 @@ source ~/.git-prompt.sh
 export PATH=$HOME/bin:$PATH
 
 # pudate guchio_utils
-echo " ====== UPDATE GUCHIO_UTILS ====== "
+echo "====== UPDATE GUCHIO_UTILS ======"
 cd guchio_utils
 git pull
 cd $HOME
-echo " ============== DONE ============= "
+echo "============== DONE ============="
