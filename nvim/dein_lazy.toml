@@ -16,3 +16,30 @@ hook_add = '''
     let g:previm_open_cmd = "open -a 'Google Chrome'"
     au BufRead,BufNewFile *.md set filetype=markdown
 '''
+
+
+# linter
+[[plugins]]
+repo = 'w0rp/ale'
+on_ft = ['python', 'c', 'cpp']
+hook_add = '''
+let g:ale_lint_on_text_changed = "normal"
+let g:ale_lint_on_enter = 0
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+" linter
+let g:ale_linters = {
+    \ 'python': ['flake8'],
+    \ 'c' : ['clangd'],
+    \ 'cpp' : ['clangd'],
+    }
+" fixer
+let g:ale_fixers = {
+      \ 'python': ['autopep8', 'isort'],
+      \ }
+let g:ale_python_autopep8_options = '--aggressive'
+let g:ale_fix_on_save = 0
+let g:ale_sign_column_always = 1
+" Set this. Airline will handle the rest.
+let g:airline#extensions#ale#enabled = 1
+'''
