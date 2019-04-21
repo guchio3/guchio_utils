@@ -1,7 +1,13 @@
 # neocomplete の上位互換
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
-hook_add = 'let g:deoplete#enable_at_startup = 1'
+hook_add = '''
+    set completeopt-=preview
+    let g:deoplete#enable_at_startup = 1
+    let g:deoplete#enable_smart_case = 1
+    let g:deoplete#max_list = 10000
+    let g:deoplete#auto_complete_start_length = 1
+'''
 
 
 # denite 
