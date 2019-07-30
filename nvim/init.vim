@@ -91,6 +91,8 @@ if has("autocmd")
     \ if line("'\"") > 0 && line ("'\"") <= line("$") |
     \   exe "normal! g'\"" |
     \ endif
+    " always use NERDTree
+    autocmd vimenter * NERDTree
   augroup END
 endif
 
