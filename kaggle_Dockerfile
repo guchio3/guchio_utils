@@ -43,8 +43,8 @@ RUN curl -o ~/anaconda.sh -O https://repo.continuum.io/archive/Anaconda3-2018.12
      $HOME/anaconda3/bin/conda install -y python=$PYTHON_VERSION numpy pyyaml scipy ipython mkl mkl-include cython typing jupyter flake8 autopep8 && \
      $HOME/anaconda3/bin/conda install -y -c pytorch magma-cuda100 && \
      $HOME/anaconda3/bin/conda install -y -c conda-forge tmux lightgbm catboost xgboost isort pudb clangdev && \
-     $HOME/anaconda3/bin/conda install -y -c anaconda clang && \
      $HOME/anaconda3/bin/conda clean -ya
+#     $HOME/anaconda3/bin/conda install -y -c anaconda clang && \
 ENV PATH $HOME/anaconda3/bin:$PATH
 RUN $HOME/anaconda3/bin/pip install ninja kaggle imgcat
 # This must be done before pip so that requirements.txt is available
