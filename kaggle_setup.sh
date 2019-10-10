@@ -4,8 +4,8 @@ if [ $# -ne 1 ]; then
     echo "your's is $#, but only 1 (cpu or gpu) is needed."
 fi
 
-mkdir ./mnt
-chmod 777 ./mnt
+mkdir $HOME/mnt
+chmod 777 $HOME/mnt
 
 if [ $1 = gpu ]; then
     sh gpu_setup.sh
