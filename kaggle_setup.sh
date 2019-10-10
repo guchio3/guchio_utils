@@ -4,6 +4,9 @@ if [ $# -ne 1 ]; then
     echo "your's is $#, but only 1 (cpu or gpu) is needed."
 fi
 
+mkdir ./mnt
+chmod 777 ./mnt
+
 if [ $1 = gpu ]; then
     sh gpu_setup.sh
     sh docker_setup.sh gpu
