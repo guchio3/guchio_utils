@@ -11,7 +11,7 @@ chmod 777 $HOME/mnt
 
 # == install basic packages ==
 sudo apt update
-sudo apt install -y sshfs wget htop git ncurses-term exuberant-ctags
+sudo apt install -y unzip sshfs wget htop git ncurses-term exuberant-ctags
 
 
 # == set locale ==
@@ -25,10 +25,10 @@ LC_ALL=en_US.UTF-8
 # == set dotfiles ==
 cd $HOME
 git clone https://github.com/guchio3/guchio_utils.git
-rm .bashrc && ln -s /root/guchio_utils/.bashrc .bashrc
-ln -s /root/guchio_utils/.tmux.conf .tmux.conf
+rm .bashrc && ln -s $HOME/guchio_utils/.bashrc .bashrc
+ln -s $HOME/guchio_utils/.tmux.conf .tmux.conf
 mkdir -p .config/nvim/
-ln -s /root/guchio_utils/nvim/* .config/nvim/
+ln -s $HOME/guchio_utils/nvim/* .config/nvim/
 
 
 # == set git ==
