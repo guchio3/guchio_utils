@@ -9,6 +9,9 @@ a repo which contains my tools and wiki
     * lightgbm                  2.2.1            py37he6710b0_0
 
 # environments
+### mk basic dev env
+sh setup.sh gpu (or cpu)
+
 ### kaggle_setup.sh
 * setup instances
 ```
