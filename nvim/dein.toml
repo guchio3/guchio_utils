@@ -3,9 +3,9 @@ repo = 'Shougo/neosnippet.vim'
 on_event = 'InsertCharPre'
 on_ft = 'snippet'
 depends = 'context_filetype.vim'
-hook_add = '''
-source ~/.config/nvim/plugins/neosnippet.rc.vim
-'''
+# hook_add = '''
+# source ~/.config/nvim/plugins/neosnippet.rc.vim
+# '''
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
@@ -135,9 +135,9 @@ repo = 'vim-airline/vim-airline-themes'
 #[[plugins]]
 #repo = 'ryanoasis/vim-devicons'
 
-#[[plugins]]
+[[plugins]]
 repo = 'rust-lang/rust.vim'
 on_ft = 'rust'
-hook_add = '''
-source ~/.config/nvim/plugins/rust.rc.vim
-'''
+#hook_add = '''
+# source ~/.config/nvim/plugins/rust.rc.vim
+#'''
