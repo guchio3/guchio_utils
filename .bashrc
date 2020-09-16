@@ -164,8 +164,8 @@ export TERM=xterm-256color
 source ~/.git-prompt.sh
 export PATH=$HOME/bin:$PATH
 
-# pudate guchio_utils
-echo "====== UPDATE GUCHIO_UTILS ======"
-cd $HOME/guchio_utils
-git pull
-cd $HOME
+# update guchio_utils
+# echo "====== UPDATE GUCHIO_UTILS ======"
+# cd $HOME/guchio_utils
+# git pull
+# cd $HOME
