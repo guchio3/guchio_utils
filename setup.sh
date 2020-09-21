@@ -64,6 +64,7 @@ $HOME/anaconda3/bin/pip install ninja kaggle imgcat
 sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt update
 sudo apt install -y neovim
+sudo apt-get install ripgrep
 
 # install dein
 mkdir -p ~/.cache/dein

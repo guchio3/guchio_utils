@@ -18,6 +18,11 @@ hook_add = '''
 '''
 
 
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = ['toml']
+
+
 # linter
 [[plugins]]
 repo = 'w0rp/ale'
