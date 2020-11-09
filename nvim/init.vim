@@ -92,7 +92,7 @@ if has("autocmd")
     \   exe "normal! g'\"" |
     \ endif
     " always use NERDTree
-    autocmd vimenter * NERDTree
+    " autocmd vimenter * NERDTree
   augroup END
 endif
 
@@ -165,6 +165,13 @@ set wrapscan
 set hlsearch
 " ESC連打でハイライト解除
 nmap <C-c><C-c> :nohlsearch<CR><Esc>
+
+
+" guchio shortcuts
+" 保存
+nmap ,w :w<CR>
+" quit
+nmap ,q :q<CR>
 
 
 "" COLOR SCHEME
