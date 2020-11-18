@@ -100,7 +100,7 @@ endif
 " 色設定
 set t_Co=256
 " 文字コードをUFT-8に設定
-" set fenc=utf-8
+set fenc=utf-8
 set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
 " UTF-8 でエンコード
 set encoding=UTF-8
