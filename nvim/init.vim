@@ -172,6 +172,8 @@ nmap <C-c><C-c> :nohlsearch<CR><Esc>
 nmap ,w :w<CR>
 " quit
 nmap ,q :q<CR>
+" term insert を esc で終了
+tnoremap <Esc> <C-\><C-n>
 
 
 "" COLOR SCHEME
