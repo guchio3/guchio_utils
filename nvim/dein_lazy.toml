@@ -36,7 +36,7 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 nmap ,a :ALEFix<CR>
 " linter
 let g:ale_linters = {
-    \ 'python': ['flake8'],
+    \ 'python': ['black'],
     \ 'c' : ['clang'],
     \ 'cpp' : ['clang'],
     \ 'rust' : ['rls'],

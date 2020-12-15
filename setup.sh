@@ -53,7 +53,7 @@ rm ~/anaconda.sh
 PATH=$HOME/anaconda3/bin:$PATH
 
 # install basic libs
-$HOME/anaconda3/bin/conda install -y python=$PYTHON_VERSION ipython flake8 autopep8
+$HOME/anaconda3/bin/conda install -y python=$PYTHON_VERSION ipython flake8 autopep8 black
 $HOME/anaconda3/bin/conda install -y -c conda-forge tmux isort pudb clangdev
 $HOME/anaconda3/bin/conda clean -ya
 $HOME/anaconda3/bin/pip install ninja kaggle imgcat
