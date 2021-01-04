@@ -247,8 +247,6 @@ nmap <C-[> <Plug>(coc-references)
 " Rename
 " nmap <silent> <space>rn <Plug>(coc-rename)
 " Format
+xmap ,a <Plug>(coc-format)
 nmap ,a <Plug>(coc-format)
 '''
-
-
-
