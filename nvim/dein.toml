@@ -1,26 +1,26 @@
-[[plugins]]
-repo = 'Shougo/neosnippet.vim'
-on_event = 'InsertCharPre'
-on_ft = 'snippet'
-depends = 'context_filetype.vim'
+# [[plugins]]
+# repo = 'Shougo/neosnippet.vim'
+# on_event = 'InsertCharPre'
+# on_ft = 'snippet'
+# depends = 'context_filetype.vim'
+# # hook_add = '''
+# # source ~/.config/nvim/plugins/neosnippet.rc.vim
+# # '''
+# 
+# [[plugins]]
+# repo = 'Shougo/neosnippet-snippets'
+# 
+# # neocomplete の上位互換
+# [[plugins]]
+# repo = 'Shougo/deoplete.nvim'
 # hook_add = '''
-# source ~/.config/nvim/plugins/neosnippet.rc.vim
+#     set completeopt-=preview
+#     let g:deoplete#enable_at_startup = 1
+#     call deoplete#custom#option('max_list', 10000)
+#     call deoplete#custom#option('auto_complete_start_length', 1)
+#     call deoplete#custom#option('enable_smart_case', 1)
 # '''
-
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-
-# neocomplete の上位互換
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-hook_add = '''
-    set completeopt-=preview
-    let g:deoplete#enable_at_startup = 1
-    call deoplete#custom#option('max_list', 10000)
-    call deoplete#custom#option('auto_complete_start_length', 1)
-    call deoplete#custom#option('enable_smart_case', 1)
-'''
-# let g:deoplete#custom#option('enable_smart_case': 1)
+# # let g:deoplete#custom#option('enable_smart_case': 1)
 
 
 # denite 
@@ -182,24 +182,33 @@ hook_add = '''
 '''
 
 
-# for airline color scheme
 [[plugins]]
-repo = 'vim-airline/vim-airline'
-depends = ['vim-airline-themes']
+repo = 'itchyny/lightline.vim'
 hook_add = '''
-let g:airline_powerline_fonts = 1
+let g:lightline = {
+      \ 'colorscheme': 'jellybeans',
+      \ }
 '''
 
 
-# for airline color scheme
-[[plugins]]
-repo = 'vim-airline/vim-airline-themes'
-#hook_add = 'let g:airline_solarized_bg="dark"'
-
-
-# set airline as deviconed (I avoid using this plugin because of mozibake)
-#[[plugins]]
-#repo = 'ryanoasis/vim-devicons'
+# # for airline color scheme
+# [[plugins]]
+# repo = 'vim-airline/vim-airline'
+# depends = ['vim-airline-themes']
+# hook_add = '''
+# let g:airline_powerline_fonts = 1
+# '''
+# 
+# 
+# # for airline color scheme
+# [[plugins]]
+# repo = 'vim-airline/vim-airline-themes'
+# #hook_add = 'let g:airline_solarized_bg="dark"'
+# 
+# 
+# # set airline as deviconed (I avoid using this plugin because of mozibake)
+# #[[plugins]]
+# #repo = 'ryanoasis/vim-devicons'
 
 [[plugins]]
 repo = 'rust-lang/rust.vim'
@@ -207,3 +216,39 @@ on_ft = 'rust'
 #hook_add = '''
 # source ~/.config/nvim/plugins/rust.rc.vim
 #'''
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+build = '''
+  git checkout release
+'''
+hook_add = '''
+"LightLineにcoc.nvimのステータスを載せます
+let g:lightline = {
+  \'active': {
+    \'right': [
+      \['coc']
+    \]
+  \},
+  \'component_function': {
+    \'coc': 'coc#status'
+  \}
+\}
+" guchio shortcut
+" CocList
+nmap ,l :<C-u>CocList<cr>
+" Hover
+nmap ,h :<C-u>call CocAction('doHover')<cr>
+" Definition
+nmap <C-]> <Plug>(coc-definition)
+" References
+nmap <C-[> <Plug>(coc-references)
+" Rename
+" nmap <silent> <space>rn <Plug>(coc-rename)
+" Format
+nmap ,a <Plug>(coc-format)
+'''
+
+
+

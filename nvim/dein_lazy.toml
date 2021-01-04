@@ -23,34 +23,34 @@ repo = 'cespare/vim-toml'
 on_ft = ['toml']
 
 
-# linter
-[[plugins]]
-repo = 'w0rp/ale'
-on_ft = ['python', 'c', 'cpp', 'rust']
-hook_add = '''
-let g:ale_lint_on_text_changed = "normal"
-let g:ale_lint_on_enter = 0
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
-" guchio shortcut
-nmap ,a :ALEFix<CR>
-" linter
-let g:ale_linters = {
-    \ 'python': ['black'],
-    \ 'c' : ['clang'],
-    \ 'cpp' : ['clang'],
-    \ 'rust' : ['rls'],
-    \ }
-" fixer
-let g:ale_fixers = {
-      \ 'python': ['autopep8', 'isort'],
-      \ 'rust': ['rustfmt'],
-      \ }
-let g:ale_python_autopep8_options = '--aggressive'
-let g:ale_rust_rls_toolchain = 'nightly'
-let g:ale_completion_enabled = 0
-let g:ale_fix_on_save = 0
-let g:ale_sign_column_always = 1
-" Set this. Airline will handle the rest.
-let g:airline#extensions#ale#enabled = 1
-'''
+# # linter
+# [[plugins]]
+# repo = 'w0rp/ale'
+# on_ft = ['python', 'c', 'cpp', 'rust']
+# hook_add = '''
+# let g:ale_lint_on_text_changed = "normal"
+# let g:ale_lint_on_enter = 0
+# nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+# nmap <silent> <C-j> <Plug>(ale_next_wrap)
+# " guchio shortcut
+# nmap ,a :ALEFix<CR>
+# " linter
+# let g:ale_linters = {
+#     \ 'python': ['black'],
+#     \ 'c' : ['clang'],
+#     \ 'cpp' : ['clang'],
+#     \ 'rust' : ['rls'],
+#     \ }
+# " fixer
+# let g:ale_fixers = {
+#       \ 'python': ['autopep8', 'isort'],
+#       \ 'rust': ['rustfmt'],
+#       \ }
+# let g:ale_python_autopep8_options = '--aggressive'
+# let g:ale_rust_rls_toolchain = 'nightly'
+# let g:ale_completion_enabled = 0
+# let g:ale_fix_on_save = 0
+# let g:ale_sign_column_always = 1
+# " Set this. Airline will handle the rest.
+# let g:airline#extensions#ale#enabled = 1
+# '''
