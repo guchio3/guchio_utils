@@ -45,7 +45,7 @@ if dein#load_state('~/.config/nvim')
   call dein#load_toml('~/.config/nvim/dein.toml',     {'lazy' : 0})
   call dein#load_toml('~/.config/nvim/dein_lazy.toml', {'lazy' : 1})
   call dein#load_toml('~/.config/nvim/dein_python.toml',   {'lazy': 1})
-  call dein#load_toml('~/.config/nvim/dein_cpp.toml',   {'lazy': 1})
+  " call dein#load_toml('~/.config/nvim/dein_cpp.toml',   {'lazy': 1})
 
   " Let dein manage dein
   " Required:
@@ -174,61 +174,6 @@ nmap ,w :w<CR>
 nmap ,q :q<CR>
 " term insert を esc で終了
 tnoremap <Esc> <C-\><C-n>
-
-
-"" COLOR SCHEME
-" If you have vim >=8.0 or Neovim >= 0.1.5
-"if (has("termguicolors"))
-" set termguicolors
-"endif
-"
-" Theme
-"MACVIMのエラーを回避する設定
-"let g:solarized_menu=0
-"設定
-"syntax enable
-"if has('gui_running')
-"    set background=light
-"else
-"    set background=dark
-"endif
-"colorscheme solarized
-
-"syntax enable
-"colorscheme tender
-"
-""MACVIMのエラーを回避する設定
-"let macvim_skip_colorscheme=1
-"
-" set airline theme
-"let g:airline_theme = 'tender'
-
-
-" スペルチェック
-"set spelllang=en,cjk
-"
-"fun! s:SpellConf()
-"  redir! => syntax
-"  silent syntax
-"  redir END
-"
-"  set spell
-"
-"  if syntax =~? '/<comment\>'
-"    syntax spell default
-"    syntax match SpellMaybeCode /\<\h\l*[_A-Z]\h\{-}\>/ contains=@NoSpell transparent containedin=Comment contained
-"  else
-"    syntax spell toplevel
-"    syntax match SpellMaybeCode /\<\h\l*[_A-Z]\h\{-}\>/ contains=@NoSpell transparent
-"  endif
-"
-"  syntax cluster Spell add=SpellNotAscii,SpellMaybeCode
-"endfunc
-"
-"augroup spell_check
-"  autocmd!
-"  autocmd BufReadPost,BufNewFile,Syntax * call s:SpellConf()
-"augroup END:
 
 
 " Load all plugins now.
