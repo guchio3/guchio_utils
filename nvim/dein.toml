@@ -133,7 +133,8 @@ hook_add = '''
   set background=dark
   " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
   " 但し Colorscheme イベントの発生が抑制されないよう nented を付ける。
-  au MyAutoCmd VimEnter * nested colorscheme hybrid
+  " au MyAutoCmd VimEnter * nested colorscheme hybrid
+  colorscheme hybrid
 '''
 
 
@@ -174,11 +175,6 @@ build = '''
   git checkout release
 '''
 hook_add = '''
-" diagnostics の色変
-hi! CocErrorSign guifg=#d1666a
-" highlight link CocErrorSign GruvboxRed
-" highlight link CocWarningSign GruvboxRed
-
 "LightLineにcoc.nvimのステータスを載せます
 set noshowmode
 let g:lightline = {
@@ -208,6 +204,14 @@ function! LightlineFilename()
   endif
   return expand('%')
 endfunction
+
+" diagnostics の色変
+autocmd ColorScheme * highlight CocErrorSign ctermfg=1 cterm=BOLD
+autocmd ColorScheme * highlight CocWarningSign ctermfg=33 cterm=BOLD
+autocmd ColorScheme * highlight link CocErrorHighlight CocErrorSign
+autocmd ColorScheme * highlight link CocWarningHighlight CocWarningSign
+" autocmd ColorScheme * highlight CocErrorLine ctermfg=138 cterm=BOLD
+" autocmd ColorScheme * highlight CocWarningLine ctermfg=74 cterm=BOLD
 
 " guchio shortcut
 " CocList
