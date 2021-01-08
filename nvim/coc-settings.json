@@ -4,6 +4,7 @@
     "diagnostic.infoSign": ">>",
     "suggest.noselect": true,
     "suggest.preferCompleteThanJumpPlaceholder": true,
+    "python.jediPath": "~/anaconda3/envs/neovim-3/lib/python3.7/site-packages",
     "languageserver": {
         "dockerfile": {
             "command": "docker-langserver",

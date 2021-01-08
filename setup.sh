@@ -60,11 +60,17 @@ $HOME/anaconda3/bin/pip install ninja kaggle imgcat
 
 
 # == install and setup neovim ==
-# install neovim
+# install neovim and related tools
 sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt update
 sudo apt install -y neovim
 sudo apt-get install ripgrep
+sudo apt install -y nodejs npm
+sudo npm install n -g
+sudo n stable
+sudo apt purge -y nodejs npm
+# exec $SHELL -l
+
 
 # install dein
 mkdir -p ~/.cache/dein
@@ -80,15 +86,15 @@ ln -s ~/guchio_utils/nvim/* .
 
 # mk conda env for nvim packages
 $HOME/anaconda3/bin/conda create -y -n neovim-3 python=3.7
-$HOME/anaconda3/envs/neovim-3/bin/pip install neovim jedi
+$HOME/anaconda3/envs/neovim-3/bin/pip install neovim jedi==0.17
 $HOME/anaconda3/bin/conda create -y -n neovim-2 python=2.7
-$HOME/anaconda3/envs/neovim-2/bin/pip install neovim jedi
+$HOME/anaconda3/envs/neovim-2/bin/pip install neovim jedi==0.17
 
 
 # == set ctags ==
-ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./pylibs.tags $($HOME/anaconda3/bin/python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))")
-mkdir ~/.config/nvim/tags/
-mv pylibs.tags ~/.config/nvim/tags/
+# ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./pylibs.tags $($HOME/anaconda3/bin/python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))")
+# mkdir ~/.config/nvim/tags/
+# mv pylibs.tags ~/.config/nvim/tags/
 
 
 # == install and setup docker (setup gpu if needed) ==
