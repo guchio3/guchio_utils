@@ -142,6 +142,16 @@ hook_add = '''
 repo = 'itchyny/lightline.vim'
 
 
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+hook_add = '''
+    let g:indent_guides_enable_on_vim_startup = 0
+    let g:indent_guides_start_level = 3
+    let g:indent_guides_guide_size = 1
+    autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=236
+    autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=235
+'''
+
 # # for airline color scheme
 # [[plugins]]
 # repo = 'vim-airline/vim-airline'
@@ -268,10 +278,11 @@ nmap K :<C-u>call CocAction('doHover')<cr>
 " Definition
 nmap <C-]> <Plug>(coc-definition)
 " References
-nmap <C-[> <Plug>(coc-references)
+" nmap <C-[> <Plug>(coc-references)
 " Rename
 " nmap <silent> <space>rn <Plug>(coc-rename)
 " Format
 xmap ,a <Plug>(coc-format)
 nmap ,a <Plug>(coc-format)
+autocmd BufWrite *.py :CocCommand python.sortImports
 '''

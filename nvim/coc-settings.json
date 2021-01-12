@@ -5,6 +5,13 @@
     "suggest.noselect": true,
     "suggest.preferCompleteThanJumpPlaceholder": true,
     "python.jediPath": "~/anaconda3/envs/neovim-3/lib/python3.7/site-packages",
+    "python.sortImports.path": "isort",
+    "python.linting.flake8Args": [
+        "--max-line-length=120"
+    ],
+    "python.formatting.autopep8Args": [
+        "--max-line-length=120"
+    ],
     "languageserver": {
         "dockerfile": {
             "command": "docker-langserver",
@@ -13,27 +20,6 @@
             ],
             "args": [
                 "--stdio"
-            ]
-        },
-        "efm": {
-            "command": "efm-langserver",
-            "args": [],
-            "filetypes": [
-                "vim",
-                "eruby",
-                "markdown"
-            ]
-        },
-        "sql": {
-            "command": "sql-language-server",
-            "args": [
-                "up",
-                "--method",
-                "stdio"
-            ],
-            "filetypes": [
-                "sql",
-                "mysql"
             ]
         }
     }
