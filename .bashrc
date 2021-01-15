@@ -153,9 +153,20 @@ fi
 unset __conda_setup
 # <<< conda init <<<
 
-# set timezone for tmux
+# setting for tmux
 export TZ=Asia/Tokyo
 export TERM=xterm-256color
+agent="$HOME/.ssh/agent"
+if [ -S "$SSH_AUTH_SOCK" ]; then
+    case $SSH_AUTH_SOCK in
+    /tmp/*/agent.[0-9]*)
+        ln -snf "$SSH_AUTH_SOCK" $agent && export SSH_AUTH_SOCK=$agent
+    esac
+elif [ -S $agent ]; then
+    export SSH_AUTH_SOCK=$agent
+else
+    echo "no ssh-agent"
+fi
 
 # setting of git-flow-completion
 # source /usr/local/bin/git-flow-completion.bash
