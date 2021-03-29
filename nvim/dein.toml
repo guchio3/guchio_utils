@@ -278,7 +278,7 @@ nmap K :<C-u>call CocAction('doHover')<cr>
 " Definition
 nmap <C-]> <Plug>(coc-definition)
 " References
-" nmap <C-[> <Plug>(coc-references)
+nmap <C-[> <Plug>(coc-references)
 " Rename
 " nmap <silent> <space>rn <Plug>(coc-rename)
 " Format
