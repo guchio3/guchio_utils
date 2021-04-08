@@ -6,10 +6,13 @@
     "suggest.preferCompleteThanJumpPlaceholder": true,
     "python.jediPath": "~/anaconda3/envs/neovim-3/lib/python3.7/site-packages",
     "python.sortImports.path": "isort",
-    "python.formatting.autopep8Path": "autopep8",
+    "python.linting.flake8Enabled": true,
+    "python.linting.mypyEnabled": true,
+    "python.linting.enabled": true,
     "python.linting.flake8Args": [
         "--max-line-length=125"
     ],
+    "python.formatting.autopep8Path": "autopep8",
     "python.formatting.autopep8Args": [
         "--max-line-length=125"
     ],

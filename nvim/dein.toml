@@ -128,13 +128,17 @@ repo = 'simeji/winresizer'
 #repo = 'nanotech/jellybeans.vim'
 #repo = 'drewtempelmeyer/palenight.vim'
 #repo = 'jacoborus/tender.vim'
-repo = 'w0ng/vim-hybrid'
+#repo = 'w0ng/vim-hybrid'
+#repo = 'cocopon/iceberg.vim'
+repo = 'rafi/awesome-vim-colorschemes'
 hook_add = '''
   set background=dark
   " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
   " 但し Colorscheme イベントの発生が抑制されないよう nented を付ける。
-  " au MyAutoCmd VimEnter * nested colorscheme hybrid
-  colorscheme hybrid
+  au MyAutoCmd VimEnter * nested colorscheme hybrid
+  " colorscheme hybrid
+  " au MyAutoCmd VimEnter * nested iceberg 
+  " colorscheme iceberg
 '''
 
 
@@ -280,7 +284,7 @@ nmap <C-]> <Plug>(coc-definition)
 " References
 nmap <C-[> <Plug>(coc-references)
 " Rename
-" nmap <silent> <space>rn <Plug>(coc-rename)
+nmap <silent> ,r <Plug>(coc-rename)
 " Format
 xmap ,a <Plug>(coc-format)
 nmap ,a <Plug>(coc-format)

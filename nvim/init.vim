@@ -65,6 +65,9 @@ if dein#load_state('~/.config/nvim')
   call dein#end()
   call dein#clear_state()
   call dein#save_state()
+
+  " color
+  colorscheme hybrid
 endif
 
 " Required:
