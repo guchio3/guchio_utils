@@ -86,9 +86,9 @@ ln -s ~/guchio_utils/nvim/* .
 
 # mk conda env for nvim packages
 $HOME/anaconda3/bin/conda create -y -n neovim-3 python=3.7
-$HOME/anaconda3/envs/neovim-3/bin/pip install neovim jedi==0.17
+$HOME/anaconda3/envs/neovim-3/bin/pip install neovim jedi==0.17.1
 $HOME/anaconda3/bin/conda create -y -n neovim-2 python=2.7
-$HOME/anaconda3/envs/neovim-2/bin/pip install neovim jedi==0.17
+$HOME/anaconda3/envs/neovim-2/bin/pip install neovim jedi==0.17.1
 
 
 # == set ctags ==
