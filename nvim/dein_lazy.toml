@@ -19,6 +19,15 @@ hook_add = '''
 
 
 [[plugins]]
+on_ft = ['markdown', 'pandoc.markdown', 'rmd']
+build = 'sh -c "cd app && yarn install"'
+repo = 'iamcco/markdown-preview.nvim'
+hook_add = '''
+    let g:mkdp_markdown_css = '~/workspace/job_huntings/resume/style.css'
+'''
+
+
+[[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = ['toml']
 
