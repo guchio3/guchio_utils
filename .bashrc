@@ -112,8 +112,6 @@ alias dsc='docker start kaggle_cpu'
 alias dsg='docker start kaggle_gpu'
 alias jn='jupyter notebook --port 8888 --ip=0.0.0.0 --allow-root'
 alias my_ip='curl inet-ip.info '
-# alias sshfs-santander='sshfs naoya.taguchi@104.196.34.212:/storage/kaggle-santander-2019/ /root/kaggle-santander-2019/mnt/'
-alias sshfs-cellular='sshfs naoya.taguchi@104.196.34.212:/storage/kaggle-cellular-image-2019/ /root/kaggle-cellular-image-2019/mnt/'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
