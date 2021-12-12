@@ -288,5 +288,6 @@ nmap <silent> ,r <Plug>(coc-rename)
 " Format
 xmap ,a <Plug>(coc-format)
 nmap ,a <Plug>(coc-format)
-autocmd BufWrite *.py :CocCommand python.sortImports
+" sort imports on save
+" autocmd BufWrite *.py :CocCommand python.sortImports
 '''
