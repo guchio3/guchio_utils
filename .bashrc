@@ -173,6 +173,10 @@ fi
 source ~/.git-prompt.sh
 export PATH=$HOME/bin:$PATH
 
+# guchio neovim
+# https://github.com/guchio3/guchio-nvim
+alias nv='docker run --rm -it -u $(id -u):$(id -g) -e HOME=/root -v $HOME:$HOME --workdir=$(pwd) nvim'
+
 # update guchio_utils
 # echo "====== UPDATE GUCHIO_UTILS ======"
 # cd $HOME/guchio_utils
