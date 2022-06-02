@@ -69,6 +69,9 @@ zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 # パスの最後のスラッシュを削除しない
 setopt noautoremoveslash
 
+# correct 機能を無効
+unsetopt correctall
+
 
 # -----------------------------
 # Completion
