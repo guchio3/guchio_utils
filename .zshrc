@@ -242,3 +242,10 @@ setopt prompt_subst
 # Prompt
 # -----------------------------
 export PATH=/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:$PATH
+
+
+# -----------------------------
+# Set Path
+# -----------------------------
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
