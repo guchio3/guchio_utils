@@ -161,6 +161,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias gs='git status'
 alias gd='git diff'
+alias gb='git branch'
 
 alias nvim='docker run --rm -it -u $(id -u):$(id -g) -e HOME=/root -v $HOME:$HOME --workdir=$(pwd) nvim'
 
@@ -245,7 +246,19 @@ export PATH=/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:
 
 
 # -----------------------------
-# Set Path
+# Direnv
+# -----------------------------
+eval "$(direnv hook zsh)"
+
+
+# -----------------------------
+# Set Go Path
 # -----------------------------
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
+
+
+# -----------------------------
+# bindkey
+# -----------------------------
+bindkey \^U backward-kill-line
