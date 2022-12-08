@@ -234,7 +234,7 @@ function git-prompt {
   echo "$branch$pushed"
 }
 
-PROMPT='%{$fg_bold[cyan]%}[%~]%{$reset_color%}`git-prompt` $ '
+PROMPT='%{$fg_bold[blue]%}${HOST} %{$fg_bold[cyan]%}[%~]%{$reset_color%}`git-prompt` $ '
 RPROMPT='%*'
 setopt prompt_subst
 
