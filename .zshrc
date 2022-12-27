@@ -246,6 +246,14 @@ export PATH=/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:
 
 
 # -----------------------------
+# kubernetes
+# -----------------------------
+if type kubectl > /dev/null; then
+    source <(kubectl completion zsh)
+fi
+
+
+# -----------------------------
 # Direnv
 # -----------------------------
 eval "$(direnv hook zsh)"
