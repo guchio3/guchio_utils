@@ -160,12 +160,20 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias gs='git status'
-alias gd='git diff'
-alias gb='git branch'
+alias gd='git --no-pager diff'
+alias gb='git --no-pager branch'
 
 alias nvim='docker run --rm -it -u $(id -u):$(id -g) -e HOME=/root -v $HOME:$HOME --workdir=$(pwd) nvim'
 
 alias k="kubectl"
+
+# colordiff
+if [[ -x `which colordiff` ]]; then
+  alias diff='colordiff -u'
+  export LESS='-R'  # to enable colordiff | less
+else
+  alias diff='diff -u'
+fi
 
 
 # -----------------------------
