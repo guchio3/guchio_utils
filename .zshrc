@@ -72,6 +72,8 @@ setopt noautoremoveslash
 # correct 機能を無効
 unsetopt correctall
 
+# deactivate glob expression
+setopt nonomatch
 
 # -----------------------------
 # Completion
@@ -160,9 +162,11 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias gs='git status'
-alias gd='git --no-pager diff'
+alias gd='git --no-pager diff --color=always'
 alias gb='git --no-pager branch'
+alias less='less -R'
 
+alias tmux='tmux -u'
 alias nvim='docker run --rm -it -u $(id -u):$(id -g) -e HOME=/root -v $HOME:$HOME --workdir=$(pwd) nvim'
 
 alias k="kubectl"
