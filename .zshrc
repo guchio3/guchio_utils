@@ -167,7 +167,17 @@ alias gb='git --no-pager branch'
 alias less='less -R'
 
 alias tmux='tmux -u'
-alias nvim='docker run --rm -it -u $(id -u):$(id -g) -e HOME=/root -v $HOME:$HOME --workdir=$(pwd) nvim'
+
+# nvim Docker wrapper function (with file completion)
+nvim() {
+    docker run --rm -it \
+        --detach-keys=ctrl-q,ctrl-q \
+        -u $(id -u):$(id -g) \
+        -e HOME=/root \
+        -v $HOME:$HOME \
+        --workdir=$(pwd) \
+        nvim "$@"
+}
 
 alias k="kubectl"
 
@@ -252,6 +262,13 @@ setopt prompt_subst
 
 
 # -----------------------------
+# env
+# -----------------------------
+export PATH=~/bin:$PATH
+. "$HOME/.local/bin/env"
+
+
+# -----------------------------
 # Prompt
 # -----------------------------
 export PATH=/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:$PATH
@@ -282,3 +299,9 @@ export PATH=$GOPATH/bin:$PATH
 # bindkey
 # -----------------------------
 bindkey \^U backward-kill-line
+
+
+# -----------------------------
+# npm
+# -----------------------------
+export PATH="$HOME/.npm-global/bin:$PATH"
