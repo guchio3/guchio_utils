@@ -174,6 +174,8 @@ nvim() {
         --detach-keys=ctrl-q,ctrl-q \
         -u $(id -u):$(id -g) \
         -e HOME=/root \
+        -e TERM="$TERM" \
+        -e COLORTERM=truecolor \
         -v $HOME:$HOME \
         --workdir=$(pwd) \
         nvim "$@"
